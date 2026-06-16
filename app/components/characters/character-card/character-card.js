@@ -10,13 +10,13 @@ class CharacterCard extends LitElement {
     super()
     this.character = {}
 
-    this.store = null
+    this._store = null
     this.listener = null
 
     this._contextConsumer = new ContextConsumer(this, {
       context: favoritesContext,
       callback: value => {
-        this.store = value
+        this._store = value
 
         this.unsubscribeStore()
         this.subscribeStore()
@@ -41,16 +41,16 @@ class CharacterCard extends LitElement {
   }
 
   subscribeStore () {
-    if (!this.store) return
+    if (!this._store) return
 
     this._listener = () => this.requestUpdate()
-    this.store.addEventListener('change', this._listener)
+    this._store.addEventListener('change', this._listener)
   }
 
   unsubscribeStore () {
-    if (!this.store || !this._listener) return
+    if (!this._store || !this._listener) return
 
-    this.store.removeEventListener('change', this._listener)
+    this._store.removeEventListener('change', this._listener)
   }
 
   disconnectedCallback () {
@@ -59,10 +59,10 @@ class CharacterCard extends LitElement {
   }
 
   toggleFavorite () {
-    this.store.toggle(this.character?.id)
+    this._store.toggle(this.character?.id)
   }
 
-  selectCharacter () {
+  _selectCharacter () {
     this.dispatchEvent(
       new CustomEvent('character-selected', {
         detail: { id: this.character?.id },
@@ -73,10 +73,10 @@ class CharacterCard extends LitElement {
   }
 
   render () {
-    const fav = this.store.isFavorite(this.character?.id)
+    const fav = this._store.isFavorite(this.character?.id)
     return html`
       <div class="contentCard">
-        <div role="button" class="contentImg" @click=${this.selectCharacter}>
+        <div role="button" class="contentImg" @click=${this._selectCharacter}>
           <figure>
             <img
               class="imgCard"
@@ -87,7 +87,7 @@ class CharacterCard extends LitElement {
         </div>
         <div>
           <div class="contentInfo">
-            <button role="button" class="title" @click=${this.selectCharacter}>${this.character.name}</button>
+            <button role="button" class="title" @click=${this._selectCharacter}>${this.character.name}</button>
             <button role="button" class="btnCard" @click=${this.toggleFavorite}>
               ${fav ? starFillIcon(18) : starIcon(18)}
             </button>

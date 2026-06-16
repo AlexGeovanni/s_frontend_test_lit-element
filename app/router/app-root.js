@@ -12,7 +12,7 @@ class AppRoot extends LitElement {
   constructor () {
     super()
 
-    // this.store = new FavoritesStore()
+    // this._store = new FavoritesStore()
     this.currentRoute = router.currentRoute || window.location.pathname
 
     this.provider = new ContextProvider(this, {

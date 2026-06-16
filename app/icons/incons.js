@@ -56,5 +56,41 @@ export const homeIcon = (size = 18) => html`
       strokeLinejoin="round"
     />
   </svg>
+`
+
+export const arrowLeftIcon = (size = 18) => html`
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width=${size}
+    height=${size}
+    viewBox="0 0 8 12"
+    fill="none"
+    stroke="none"
+    strokeWidth={1.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path
+      d="M7.41016 1.41L2.83016 6L7.41016 10.59L6.00016 12L0.000156403 6L6.00016 0L7.41016 1.41Z"
+      fill="#C4CDD5"
+    />
+  </svg>
+`
+export const arrowRightIcon = (size = 18) => html`
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width=${size}
+    height=${size}
+    viewBox="0 0 8 12"
+    fill="none"
+    stroke="none"
+    strokeWidth={1.2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path
+      d="M0 1.41L4.58 6L0 10.59L1.41 12L7.41 6L1.41 0L0 1.41Z"
+      fill="#C4CDD5"
+    />
   </svg>
 `

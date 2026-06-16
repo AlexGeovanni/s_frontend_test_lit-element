@@ -22,7 +22,7 @@ class UiModal extends LitElement {
     }
   }
 
-  closeModal () {
+  _closeModal () {
     this.dispatchEvent(new CustomEvent('modal-close', {
       bubbles: true,
       composed: true,
@@ -32,7 +32,7 @@ class UiModal extends LitElement {
 
   _handleBackdropClick (ev) {
     if (ev.target?.id === 'modal-backdrop') {
-      this.closeModal()
+      this._closeModal()
     }
   }
 
@@ -48,7 +48,7 @@ class UiModal extends LitElement {
         @click=${this._handleBackdropClick}
       >
         <div class="contentModal">
-          <button type="button" class="closeButton" aria-label="Cerrar modal" @click=${this.closeModal}>
+          <button type="button" class="closeButton" aria-label="Cerrar modal" @click=${this._closeModal}>
             CERRAR
           </button>
           <slot></slot>

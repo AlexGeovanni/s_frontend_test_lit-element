@@ -5,7 +5,7 @@ class AppRouter extends EventTarget {
 
     window.addEventListener('popstate', () => {
       this.currentRoute = window.location.pathname
-      this.notify()
+      this._notify()
     })
   }
 
@@ -14,10 +14,10 @@ class AppRouter extends EventTarget {
 
     history.pushState({}, '', path)
     this.currentRoute = path
-    this.notify()
+    this._notify()
   }
 
-  notify () {
+  _notify () {
     this.dispatchEvent(new Event('route-change'))
   }
 }

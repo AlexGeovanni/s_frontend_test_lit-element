@@ -1,4 +1,7 @@
-.contentPagination {
+import { css } from 'lit-element'
+
+export const styles = css`
+ .contentPagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,5 +40,4 @@ button.btnPagination:not(:disabled):hover {
     color: #4200FF !important;
     border:1px solid #4200FF !important;
 }
-
-
+ `

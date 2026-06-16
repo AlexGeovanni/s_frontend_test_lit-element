@@ -4,6 +4,7 @@ import { Characters } from '../../../service/characters.service'
 import '../character-card/character-card'
 import '../character-modal/character-modal'
 import '../../ui/status-message/status-message'
+import '../pagination-list/pagination-list'
 
 class CharacterList extends LitElement {
   constructor () {
@@ -76,6 +77,20 @@ class CharacterList extends LitElement {
   }
 
   render () {
+    return html`
+      ${this.renderHeader}
+      ${this.renderCharactersList}
+      <character-modal
+        .open=${this.isOpenModal}
+        .character=${this.selectedCharacter}
+        .loading=${this.detailLoading}
+        .error=${this.detailError}
+        @close-character-modal=${this._closeModal}
+      ></character-modal>
+    `
+  }
+
+  get renderCharactersList () {
     if (this.loading) {
       return html`
         <status-message
@@ -107,7 +122,6 @@ class CharacterList extends LitElement {
     }
 
     return html`
-      ${this.headerRender}
       <div
         class="contentList"
         @character-selected=${this.handleCharacterSelected}
@@ -117,26 +131,20 @@ class CharacterList extends LitElement {
             html`<character-card .character=${character}></character-card>`
         )}
       </div>
-      <character-modal
-        .open=${this.isOpenModal}
-        .character=${this.selectedCharacter}
-        .loading=${this.detailLoading}
-        .error=${this.detailError}
-        @close-character-modal=${this._closeModal}
-      ></character-modal>
-    `
+      <pagination-list .currentPage=${this.currentPage} .info=${this.info}></pagination-list>
+      `
   }
 
-  get headerRender () {
-    const total = this.info?.count ?? 0
+  get renderHeader () {
+    const total = this.info?.count || 0
     return html`
       <div class="headerList">
         <h2>Personajes</h2>
-        ${this.info && this.characters.length > 0
+        ${this.info && !this.loading && this.characters.length > 0
           ? html`
               <p>
                 ${total} ${total !== 1 ? 'resultados' : 'resultado'} - Pagina 
-                ${this.currentPage} de ${this.info?.page || 0}
+                ${this.currentPage} de ${this.info?.pages || 0}
               </p>
             `
           : nothing}

@@ -12,6 +12,7 @@ class HomePage extends LitElement {
   _debounceId
   constructor () {
     super()
+    this.currentPage = 1
     this.data = []
     this.info = {}
     this.loading = true
@@ -28,6 +29,7 @@ class HomePage extends LitElement {
 
   static get properties () {
     return {
+      currentPage: { type: Number, attribute: false },
       data: { type: Array, attribute: false },
       info: { type: Object, attribute: false },
       loading: { type: Boolean, attribute: false },
@@ -54,7 +56,7 @@ class HomePage extends LitElement {
     this.error = ''
 
     try {
-      const res = await this.characters.getCharacters(1)
+      const res = await this.characters.getCharacters(this.currentPage)
       this.info = res?.info
       this.data = this.listCharactersNormalize(res.results)
     } catch (error) {
@@ -85,18 +87,23 @@ class HomePage extends LitElement {
         await this._getCharacters()
         return
       }
-      const res = await this.characters.searchCharactersByName(this.search, 1, this._controller?.signal)
+      const res = await this.characters.searchCharactersByName(this.search, this.currentPage, this._controller?.signal)
       this.info = res?.info
       this.data = this.listCharactersNormalize(res.results)
     } catch (error) {
       this.error = 'No se pudieron cargar los personajes. Revisa tu conexión e inténtalo de nuevo más tarde.'
       if (error.name === 'AbortError') {
-        console.log('Búsqueda abortada')
+        console.error('Búsqueda abortada')
       }
-      console.error('Error al buscar personajes:', error)
     } finally {
       this.loading = false
     }
+  }
+
+  //
+  _onPageChange (ev) {
+    this.currentPage = ev.detail?.page
+    this._getCharacters()
   }
 
   render () {
@@ -108,6 +115,8 @@ class HomePage extends LitElement {
           .error=${this.error}
           .info=${this.info}
           .characters=${this.data}
+          .currentPage=${this.currentPage}
+          @page-change=${this._onPageChange}
         ></character-list>
     `
   }

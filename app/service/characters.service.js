@@ -14,8 +14,8 @@ export class Characters {
     return Api(`?name=${query}&page=${page}`, {}, singal)
   }
 
-  getFavoritesCharacters (ids) {
+  getFavoritesCharacters (ids, signal) {
     if (!ids.length) return Promise.resolve([])
-    return Api(`/${ids.join(',')}`)
+    return Api(`/${ids.join(',')}`, {}, signal)
   }
 }

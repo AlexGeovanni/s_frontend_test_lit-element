@@ -25,10 +25,6 @@ class HomeToolbar extends LitElement {
   _onSearchInput (ev) {
     const value = ev.target.value
     this.search = value
-    this._emitSearchChange(value)
-  }
-
-  _emitSearchChange (value) {
     this.dispatchEvent(new CustomEvent('search-change', {
       bubbles: true,
       composed: true,
