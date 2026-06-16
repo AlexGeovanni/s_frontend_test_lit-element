@@ -1,0 +1,62 @@
+import { css } from 'lit-element'
+
+export const styles = css`
+.skeleton {
+  display: block;
+  width: 100%;
+  background-color: #eeeeee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: -150% 0;
+  animation: shimmer 2s ease-in-out infinite;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+
+/* Modal skeleton */
+.modalSkeleton {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.modalContent {
+  display: block;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #696969;
+}
+.contentCardSkeleton {
+  background-color: #eeeeee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 80dvh;
+  margin-top:0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #696969;
+}
+`

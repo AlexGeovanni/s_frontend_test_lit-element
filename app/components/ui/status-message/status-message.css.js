@@ -1,0 +1,94 @@
+import { css } from 'lit-element'
+
+export const styles = css`
+.statusMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 100%;
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-height: 70dvh;
+}
+
+.statusMessage.error {
+  background: #fff4f4;
+  border-color: #f2c2c2;
+  color: #822424;
+}
+
+.statusMessage.empty {
+  background: #f5f8ff;
+  border-color: #c8d9ff;
+  color: #1f3a72;
+}
+
+.statusMessage.info {
+  background: #f5f5f5;
+  border-color: #d1d1d1;
+  color: #3d3d3d;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 100%;
+  font-size: 1.35rem;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.statusMessage.error .icon {
+  background: #fce8e8;
+}
+
+.statusMessage.empty .icon {
+  background: #eaf2ff;
+}
+
+.statusMessage.info .icon {
+  background: #f3f3f3;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.title {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 2.05rem;
+}
+
+.description {
+  margin: 0;
+  line-height: 1.6;
+  color: inherit;
+}
+
+.button {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button:hover {
+  background: #202020;
+}
+
+`

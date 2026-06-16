@@ -1,0 +1,57 @@
+import { css } from 'lit-element'
+
+export const styles = css`
+  .contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+  }
+
+  .contentSearch {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .searchLabel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem;
+    background: #f7f7f8;
+    border-radius: 0.5rem;
+  }
+
+  .labelInput {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: var(--font-base);
+    width: 100%;
+  }
+
+  .btnLink {
+    display: flex;
+    align-items: center;
+    gap: 1.125rem;
+    color: #000;
+    text-decoration: none;
+    transition: color ease 0.2s;
+  }
+
+  .btnLink:hover {
+    text-decoration: underline;
+    color: #5c5c5c;
+  }
+
+  .LinkIcon {
+      background: #4339f2;
+      padding: 0.35rem 0.375rem;
+      border-radius: 0.313rem;
+    }
+
+    .icon {
+      color: #fff;
+    }
+`
