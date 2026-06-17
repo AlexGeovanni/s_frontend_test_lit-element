@@ -48,9 +48,9 @@ class CharacterList extends LitElement {
     }
   }
 
-  // consulta character por el id seleccionado
   async handleCharacterSelected (e) {
-    const id = e.detail?.id // obtenemos el ID atraves de un evento personalizado
+    // El card solo avisa el id; aqui resolvemos el detalle completo.
+    const id = e.detail?.id
     if (!id) return
 
     this.isOpenModal = true
@@ -68,8 +68,8 @@ class CharacterList extends LitElement {
     }
   }
 
-  // cerramos el modal y hace un reset de estados
   _closeModal () {
+    // Cerramos el modal y limpiamos el estado temporal del detalle.
     this.isOpenModal = false
     this.selectedCharacter = null
     this.detailLoading = false

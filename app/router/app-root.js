@@ -14,6 +14,7 @@ class AppRoot extends LitElement {
 
     this.currentRoute = router.currentRoute || window.location.pathname
 
+    // Comparte el store global de favoritos con los componentes hijos.
     this.provider = new ContextProvider(this, {
       context: favoritesContext,
       initialValue: favoritesStore
@@ -35,6 +36,7 @@ class AppRoot extends LitElement {
   connectedCallback () {
     super.connectedCallback()
 
+    // Escucha cambios de ruta para volver a renderizar la vista correcta.
     router.addEventListener('route-change', this.handleRouteChange)
   }
 
@@ -48,11 +50,13 @@ class AppRoot extends LitElement {
   }
 
   handleRouteChange = () => {
+    // Guarda la ruta actual y fuerza un nuevo render.
     this.currentRoute = router.currentRoute
     this.requestUpdate()
   }
 
   renderPage () {
+    // Cambia de pagina segun la ruta actual.
     switch (this.currentRoute) {
       case '/favorites':
         return html`<favorite-page></favorite-page>`

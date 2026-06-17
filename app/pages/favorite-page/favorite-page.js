@@ -27,6 +27,7 @@ class FavoritePage extends LitElement {
     this.listener = null
 
     this.listCharactersNormalize = listCharactersNormalize
+    // Se conecta al store de favoritos para refrescar la vista cuando cambie.
     this.contextConsumer = new ContextConsumer(this, {
       context: favoritesContext,
       callback: value => {
@@ -63,6 +64,7 @@ class FavoritePage extends LitElement {
     if (!this._store) return
 
     this.listener = () => this.requestUpdate()
+    // Cuando cambian los favoritos, volvemos a cargar la lista visible.
     this._store.addEventListener('change', () => {
       this.listener()
       this._getFavoritesCharacters()
@@ -84,6 +86,7 @@ class FavoritePage extends LitElement {
     this.loading = true
     this.error = ''
 
+    // Si hay una consulta previa, la cancelamos antes de pedir datos nuevos.
     this._controller?.abort()
     this._controller = new AbortController()
 
@@ -108,13 +111,13 @@ class FavoritePage extends LitElement {
     }
   }
 
-  //
   _onPageChange (ev) {
     this.currentPage = ev.detail?.page
     this._getCharacterFavMemo()
   }
 
   _getCharacterFavMemo () {
+    // Divide la lista de favoritos en la pagina actual.
     this.start = (this.currentPage - 1) * this._page
     this.end = this.start + this._page
 

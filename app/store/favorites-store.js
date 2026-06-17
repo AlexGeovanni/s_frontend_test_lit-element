@@ -10,6 +10,7 @@ class FavoritesStore extends EventTarget {
     if (!data) return []
 
     try {
+      // Si el storage se corrompe, preferimos volver a un estado vacío.
       return JSON.parse(data)
     } catch {
       return []
@@ -36,6 +37,7 @@ class FavoritesStore extends EventTarget {
 
     this.favorites = [...this.favorites, id]
     this._save()
+    // El resto de la app escucha este evento para refrescar la UI.
     this._notify()
   }
 
@@ -45,6 +47,7 @@ class FavoritesStore extends EventTarget {
     )
 
     this._save()
+    // El resto de la app escucha este evento para refrescar la UI.
     this._notify()
   }
 

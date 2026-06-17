@@ -10,6 +10,7 @@ La aplicacion incluye dos vistas principales:
 
 - `Lit` y `lit-element` para los componentes web.
 - `@lit/context` para compartir el estado de favoritos.
+- `Vitest` con entorno `jsdom` + `@open-wc/testing` para realizar las test unitarios
 - `Vite` como bundler y servidor de desarrollo.
 - `JavaScript` como lenguaje principal.
 - `CSS` para estilos por componente.
@@ -25,7 +26,9 @@ La aplicacion incluye dos vistas principales:
 
 - `npm run dev`: inicia el servidor de desarrollo con Vite.
 - `npm run build`: genera la version de produccion en `dist/`.
-- `npm run test`: script placeholder; actualmente no hay suite automatizada configurada.
+- `npm run test`: ejecuta Vitest en modo interactivo.
+- `npm run test:run`: ejecuta la suite completa una sola vez.
+- `npm run test:coverage`: corre la suite y genera reporte de cobertura.
 
 ## Funcionalidades principales
 

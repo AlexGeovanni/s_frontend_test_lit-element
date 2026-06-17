@@ -30,6 +30,7 @@ class PaginationList extends LitElement {
       return Array.from({ length: totalPages }, (_, i) => i + 1)
     }
 
+    // Cuando hay muchas paginas, mostramos solo una ventana corta de numeros.
     if (currentPage >= totalPages - 2) {
       return [totalPages - 3, totalPages - 2, totalPages - 1, totalPages]
     }
@@ -51,6 +52,7 @@ class PaginationList extends LitElement {
 
     if (page < 1 || page > totalPages) return
 
+    // Emitimos el cambio para que la pagina padre decida que cargar.
     this.dispatchEvent(new CustomEvent('page-change', {
       bubbles: true,
       composed: true,

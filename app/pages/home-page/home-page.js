@@ -71,6 +71,7 @@ class HomePage extends LitElement {
     this.search = ev.detail?.value || ''
     this.currentPage = 1
 
+    // Espera a que el usuario termine de escribir antes de consultar.
     clearTimeout(this._debounceId)
     this._debounceId = window.setTimeout(() => {
       this._searchApi()
@@ -81,6 +82,7 @@ class HomePage extends LitElement {
     this.loading = true
     this.error = ''
 
+    // Cancela la consulta anterior para evitar respuestas fuera de orden.
     this._controller?.abort()
     this._controller = new AbortController()
 
@@ -102,7 +104,6 @@ class HomePage extends LitElement {
     }
   }
 
-  //
   _onPageChange (ev) {
     this.currentPage = ev.detail?.page
     this.search ? this._searchApi() : this._getCharacters()

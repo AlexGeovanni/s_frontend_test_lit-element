@@ -23,6 +23,7 @@ class CharacterModal extends LitElement {
       callback: value => {
         this._store = value
 
+        // Evita dejar listeners viejos cuando cambia el store inyectado.
         this.unsubscribeStore()
         this.subscribeStore()
 
@@ -68,7 +69,6 @@ class CharacterModal extends LitElement {
 
   toggleFavorite () {
     this._store.toggle(this.character?.id)
-    // this.closeCharacterModal()
   }
 
   closeCharacterModal () {

@@ -8,7 +8,7 @@ class StatusMessage extends LitElement {
     this.location = window.location.pathname
     this.title = ''
     this.description = ''
-    this.variant = 'empty' // por defecto inicializamos en empty
+    this.variant = 'empty'
   }
 
   static get is () {
@@ -24,7 +24,7 @@ class StatusMessage extends LitElement {
       location: { type: String },
       title: { type: String },
       description: { type: String },
-      variant: { type: String }, // variantes puender ser : info, error, empty
+      variant: { type: String },
       stylesVariante: { type: Array }
     }
   }
@@ -34,6 +34,7 @@ class StatusMessage extends LitElement {
   }
 
   render () {
+    // Solo mostramos este CTA cuando la vista de favoritos esta vacia.
     return html`
       <div
         class="statusMessage ${this.variant}"
