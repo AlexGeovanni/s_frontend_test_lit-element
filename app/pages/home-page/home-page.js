@@ -70,6 +70,7 @@ class HomePage extends LitElement {
   _onSearchInput (ev) {
     this.search = ev.detail?.value || ''
     this.currentPage = 1
+
     clearTimeout(this._debounceId)
     this._debounceId = window.setTimeout(() => {
       this._searchApi()

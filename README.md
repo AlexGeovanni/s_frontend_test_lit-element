@@ -1,10 +1,5 @@
-# lit-element
-
-Aplicacion web creada con Lit para explorar personajes de Rick and Morty, ver su detalle, buscar por nombre y guardar favoritos en el navegador.
-
-## Descripcion basica
-
-Este proyecto es una practica de componentes web con Lit. La app consume la API publica de Rick and Morty, muestra una lista paginada de personajes, permite abrir un modal con el detalle de cada personaje y administra una lista de favoritos persistida en `localStorage`.
+# SNGULAR - test - lit-element
+La app consume la API publica de Rick and Morty, muestra una lista paginada de personajes, permite abrir un modal con el detalle de cada personaje y administra una lista de favoritos persistida en `localStorage`.
 
 La aplicacion incluye dos vistas principales:
 
@@ -38,8 +33,6 @@ La aplicacion incluye dos vistas principales:
 - Busqueda por nombre con debounce.
 - Modal con detalle de personaje seleccionado.
 - Agregar y quitar personajes favoritos.
-- Persistencia de favoritos en `localStorage`.
-- Vista dedicada para ver solo los favoritos.
 - Manejo de estados de carga, error y vacio.
 - Navegacion por rutas usando `history.pushState`.
 
