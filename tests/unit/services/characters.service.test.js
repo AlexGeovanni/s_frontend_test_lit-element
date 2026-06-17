@@ -8,7 +8,7 @@ vi.mock('../../../app/service/api', () => ({
 
 describe('characters service', () => {
   const service = new Characters()
-  it('fetch characters, calls Api with page', async () => {
+  it('fetch characters, llama la Api con page', async () => {
     const apiResponse = {
       info: { count: 826, pages: 42, next: 'next', prev: null },
       results: [{ id: 1, name: 'Rick Sanchez' }]

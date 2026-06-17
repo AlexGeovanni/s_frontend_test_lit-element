@@ -12,7 +12,7 @@ it('renders ui-modal', async () => {
   expect(modal).toBeTruthy()
 })
 
-it('renders character info', async () => {
+it('renderiza el character info', async () => {
   const character = {
     id: 1,
     name: 'Rick Sanchez',
