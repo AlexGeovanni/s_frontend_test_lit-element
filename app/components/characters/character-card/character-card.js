@@ -73,7 +73,7 @@ class CharacterCard extends LitElement {
   }
 
   render () {
-    const fav = this._store.isFavorite(this.character?.id)
+    const fav = this._store?.isFavorite?.(this.character?.id) || false
     return html`
       <div class="contentCard">
         <div role="button" class="contentImg" @click=${this._selectCharacter}>

@@ -104,7 +104,7 @@ class CharacterModal extends LitElement {
       return html`<p>No data</p>`
     }
 
-    const fav = this._store.isFavorite(this.character?.id)
+    const fav = this._store?.isFavorite?.(this.character?.id) || false
 
     return html`
     <div class="content">
@@ -142,10 +142,6 @@ class CharacterModal extends LitElement {
       </div>
     </div>
 </div>
-      <!-- <h2>${this.character.name}</h2>
-      <img src=${this.character.image}>
-      <p>Status: ${this.character.status}</p>
-      <p>Species: ${this.character.species}</p> -->
     `
   }
 }
