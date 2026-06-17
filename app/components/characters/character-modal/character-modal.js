@@ -117,7 +117,7 @@ class CharacterModal extends LitElement {
           class="btnFav"
           @click=${this.toggleFavorite}
         >
-         ${fav ? starFillIcon(18) : starIcon(18)}
+         ${fav ? starFillIcon(18) : starIcon(18, 'icon')}
         </button>
       </div>
     </div>

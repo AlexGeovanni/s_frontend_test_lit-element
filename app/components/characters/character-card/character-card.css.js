@@ -66,11 +66,14 @@ export const styles = css`
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    @media (width: 64rem) {
+  }
+  @media (min-width: 64rem) {
+    .btnCard {
       width: 1.8rem;
       height: 1.8rem;
     }
   }
+
   .icon {
     color: #838a91;
   }

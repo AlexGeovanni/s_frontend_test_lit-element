@@ -7,6 +7,10 @@ class MainLayout extends LitElement {
 
   static get styles () {
     return css`
+      *{
+        box-sizing: border-box;
+        margin: 0;
+      }
       .wrapper {
         max-width: 1440px;
         width: 100%;

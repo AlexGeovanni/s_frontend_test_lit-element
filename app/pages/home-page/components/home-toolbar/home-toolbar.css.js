@@ -3,14 +3,24 @@ import { css } from 'lit-element'
 export const styles = css`
   .contentHeader {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0.25rem 0;
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
 
   .contentSearch {
-    max-width: 500px;
     width: 100%;
+  }
+
+  @media (min-width: 48rem) {
+    .contentHeader {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contentSearch {
+      max-width: 500px;
+    }
   }
 
   .searchLabel {
@@ -19,8 +29,9 @@ export const styles = css`
     align-items: center;
     gap: 0.375rem;
     padding: 0.5rem;
-    background: #f7f7f8;
+    background-color: #f7f7f8;
     border-radius: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.2);
   }
 
   .labelInput {
@@ -34,7 +45,7 @@ export const styles = css`
   .btnLink {
     display: flex;
     align-items: center;
-    gap: 1.125rem;
+    gap: 1rem;
     color: #000;
     text-decoration: none;
     transition: color ease 0.2s;
@@ -48,6 +59,7 @@ export const styles = css`
   .LinkIcon {
       background: #4339f2;
       padding: 0.35rem 0.375rem;
+      padding-bottom: 0.25rem;
       border-radius: 0.313rem;
     }
 

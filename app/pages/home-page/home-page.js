@@ -61,7 +61,7 @@ class HomePage extends LitElement {
       this.data = this.listCharactersNormalize(res.results)
     } catch (error) {
       this.error = 'No se pudieron cargar los personajes. Revisa tu conexión e inténtalo de nuevo más tarde.'
-      console.error(error)
+      console.log(error)
     } finally {
       this.loading = false
     }
@@ -69,6 +69,7 @@ class HomePage extends LitElement {
 
   _onSearchInput (ev) {
     this.search = ev.detail?.value || ''
+    this.currentPage = 1
     clearTimeout(this._debounceId)
     this._debounceId = window.setTimeout(() => {
       this._searchApi()
@@ -84,7 +85,7 @@ class HomePage extends LitElement {
 
     try {
       if (this.search === '') {
-        await this._getCharacters()
+        this._getCharacters()
         return
       }
       const res = await this.characters.searchCharactersByName(this.search, this.currentPage, this._controller?.signal)
@@ -103,7 +104,7 @@ class HomePage extends LitElement {
   //
   _onPageChange (ev) {
     this.currentPage = ev.detail?.page
-    this._getCharacters()
+    this.search ? this._searchApi() : this._getCharacters()
   }
 
   render () {

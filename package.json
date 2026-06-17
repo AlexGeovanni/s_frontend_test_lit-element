@@ -20,12 +20,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ArzCorp/lit-element.git"
+		"url": "git+https://github.com/AlexGeovanni/s_frontend_test_lit-element.git"
 	},
 	"bugs": {
-		"url": "https://github.com/ArzCorp/lit-element/issues"
+		"url": "https://github.com/AlexGeovanni/s_frontend_test_lit-element/issues"
 	},
-	"homepage": "https://github.com/ArzCorp/lit-element#readme",
+	"homepage": "https://github.com/AlexGeovanni/s_frontend_test_lit-element#readme",
 	"dependencies": {
 		"@lit/context": "^1.1.6",
 		"lit": "^3.3.3",

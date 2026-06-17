@@ -11,6 +11,15 @@ class HomeHeader extends LitElement {
       padding: 2rem;
       margin-bottom: 0.25rem;
     }
+
+    .contentTitlePage h1 {
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+    .contentTitlePage p {
+      margin: 0;
+    }
+
   `
 
   static get properties () {

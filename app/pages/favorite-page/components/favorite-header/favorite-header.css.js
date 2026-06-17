@@ -7,6 +7,10 @@ export const styles = css`
   margin-bottom: 0.25rem;
 }
 
+.contentTitlePage h1{
+  margin: 0;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -24,6 +28,7 @@ export const styles = css`
   transition: color ease 0.2s;
 }
 .btnLink:hover {
+  text-decoration: underline;
   color: #5c5c5c;
 }
 .btnLink span {

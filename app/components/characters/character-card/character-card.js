@@ -89,7 +89,7 @@ class CharacterCard extends LitElement {
           <div class="contentInfo">
             <button role="button" class="title" @click=${this._selectCharacter}>${this.character.name}</button>
             <button role="button" class="btnCard" @click=${this.toggleFavorite}>
-              ${fav ? starFillIcon(18) : starIcon(18)}
+              ${fav ? starFillIcon(18) : starIcon(18, 'icon')}
             </button>
           </div>
         </div>

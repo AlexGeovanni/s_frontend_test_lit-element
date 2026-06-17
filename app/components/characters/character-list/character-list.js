@@ -140,7 +140,7 @@ class CharacterList extends LitElement {
     return html`
       <div class="headerList">
         <h2>Personajes</h2>
-        ${this.info && !this.loading && this.characters.length > 0
+        ${this.info && !this.error && !this.loading && this.characters.length > 0
           ? html`
               <p>
                 ${total} ${total !== 1 ? 'resultados' : 'resultado'} - Pagina 

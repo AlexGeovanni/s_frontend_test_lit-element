@@ -8,12 +8,16 @@ export const styles = css`
   /* text-3xl font-bold tracking-tight text-balance */
   font-weight: bold;
   font-size: 1.575rem;
+  margin: 0;
+  margin-top: 0.5rem;
 }
 
-.headerList p{
+.headerList p {
   /* text-3xl font-bold tracking-tight text-balance */
   color: #737373;
   font-size: var(--font-base);
+  margin: 0;
+  margin-top: 0.5rem;
 }
 
 .contentList {

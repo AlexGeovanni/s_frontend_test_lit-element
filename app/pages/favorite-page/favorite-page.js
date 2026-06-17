@@ -1,10 +1,10 @@
 import { css, html, LitElement } from 'lit-element'
-import '../../components/layout/wrapper/main-layout'
-import './components/favorite-header/favorite-header'
 import { Characters } from '../../service/characters.service'
 import { ContextConsumer } from '@lit/context'
 import { favoritesContext } from '../../store/favorites-context'
 import { listCharactersNormalize } from '../../normalize/list-characters-normalize'
+import './components/favorite-header/favorite-header'
+
 class FavoritePage extends LitElement {
   _page = 10
   _controller
@@ -90,7 +90,11 @@ class FavoritePage extends LitElement {
     const favorites = this._store.getAll() || []
 
     try {
-      if (!(favorites?.length > 0)) return
+      if (!(favorites?.length > 0)) {
+        this.data = []
+        this._getCharacterFavMemo()
+        return
+      }
       const res = await this.characters.getFavoritesCharacters(favorites, this._controller?.singal)
       this.data = this.listCharactersNormalize(Array.isArray(res) ? res : [res])
       this._getCharacterFavMemo()
@@ -127,7 +131,6 @@ class FavoritePage extends LitElement {
 
   render () {
     return html`
-      <main-layout>
         <favorite-header></favorite-header>
         <character-list
           .staustMssgTitle=${'Sin personajes favoritos'}
@@ -139,7 +142,6 @@ class FavoritePage extends LitElement {
           .currentPage=${this.currentPage}
           @page-change=${this._onPageChange}
         ></character-list>
-      </main-layout>
     `
   }
 }
